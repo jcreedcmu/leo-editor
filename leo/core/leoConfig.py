@@ -1670,14 +1670,14 @@ class LocalConfigManager(object):
             weight = "normal"
         return g.app.gui.getFontFromParams(family, size, slant, weight)
     #@+node:ekr.20120215072959.12532: *5* c.config.getInt
-    def getInt(self, setting):
+    def getInt(self, setting, default=None):
         '''Return the value of @int setting.'''
         val = self.get(setting, "int")
         try:
             val = int(val)
             return val
         except TypeError:
-            return None
+            return default
     #@+node:ekr.20120215072959.12533: *5* c.config.getLanguage
     def getLanguage(self, setting):
         '''Return the setting whose value should be a language known to Leo.'''

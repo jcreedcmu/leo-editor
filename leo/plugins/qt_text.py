@@ -726,15 +726,15 @@ class NumberBar(QtWidgets.QFrame):
         # Set the name to gutter so that the QFrame#gutter style sheet applies.
         self.setObjectName('gutter')
         self.reloadSettings()
-        
+
     def reloadSettings(self):
         c = self.c
         c.registerReloadSettings(self)
-        self.w_adjust = c.config.getInt('gutter-w-adjust') or 12
+        self.w_adjust = c.config.getInt('gutter-w-adjust', 12)
             # Extra width for column.
-        self.y_adjust = c.config.getInt('gutter-y-adjust') or 10
+        self.y_adjust = c.config.getInt('gutter-y-adjust', 10)
             # The y offset of the first line of the gutter.
-        
+
     #@+node:ekr.20150403094706.5: *3* NumberBar.update
     def update(self, *args):
         '''
